@@ -19,18 +19,18 @@ Create the CLOUD TRANSITION workspace, define the roadmap, and push the first ve
 - [x] Created first project folder
 - [x] Pushed first commit to GitHub
 
-## Current Learning Checkpoint
+## Mini Learning Checkpoint
 
 Mini Stage : IAM Safety Basics
 
 - [x] Created IAM safety basics note
-- [ ] I understand root user
-- [ ] I understand IAM user
-- [ ] I understand IAM policy
-- [ ] I understand IAM role
-- [ ] I understand MFA
-- [ ] I understand security group
-- [ ] I understand EC2 key pair
+- [x] I understand root user
+- [x] I understand IAM user
+- [x] I understand IAM policy
+- [x] I understand IAM role
+- [x] I understand MFA
+- [x] I understand security group
+- [x] I understand EC2 key pair
 - [ ] Root MFA checked
 - [ ] Budget alert checked
 
