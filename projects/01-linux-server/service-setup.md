@@ -215,9 +215,9 @@ sudo journalctl -u cloud-transition-node-api -f
 - [x] Local API created
 - [x] Local API tested
 - [x] EC2 instance created
-- [ ] SSH connection completed
-- [ ] Server packages updated
-- [ ] Basic tools installed
+- [x] SSH connection completed
+- [x] Server packages updated
+- [x] Basic tools installed
 - [ ] Node.js installed
 - [ ] Repository cloned to server
 - [ ] API dependencies installed
