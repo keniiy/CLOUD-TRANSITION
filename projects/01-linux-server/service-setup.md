@@ -180,7 +180,7 @@ http://3.11.8.243:3000/health
 
 ### Step 9: Keep the API running
 
-Status: Not started
+Status: Not started -> Done
 
 Running the app manually is not enough because it stops when the terminal closes.
 
@@ -188,9 +188,26 @@ I will use either `pm2` or `systemd` to keep it running as a long-running proces
 
 For this stage, the first option will likely be `pm2` because it is simpler for learning process management.
 
+
+## 10. PM2 Process Management
+
+The API is now managed with PM2.
+
+PM2 keeps the Node.js process running after the SSH terminal closes.
+
+Commands used:
+
+```bash
+pm2 start npm --name cloud-transition-node-api -- run dev
+pm2 list
+pm2 logs cloud-transition-node-api
+pm2 restart cloud-transition-node-api
+pm2 save
+pm2 startup
+
 ### Step 10: Check logs and restart service
 
-Status: Not started
+Status: Not started -> Done
 
 I need to learn how to inspect logs, restart the service, and confirm the process is running.
 
@@ -222,10 +239,10 @@ sudo journalctl -u cloud-transition-node-api -f
 - [x] Repository cloned to server
 - [x] API dependencies installed
 - [x] API running manually on server
-- [ ] API accessible through public IP and port 3000
-- [ ] API managed by pm2 or systemd
-- [ ] Logs checked
-- [ ] Restart process tested
+- [x] API accessible through public IP and port 3000
+- [x] API managed by pm2 or systemd
+- [x] Logs checked
+- [x] Restart process tested
 
 ## Notes
 

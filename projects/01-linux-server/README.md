@@ -26,18 +26,24 @@ Before moving into Docker, CI/CD, Terraform, ECS, Kubernetes, and platform engin
 - `GET /health`
 - `GET /info`
 
+
+
 ## Current Status
 
 - [x] Created local TypeScript/Node.js API
 - [x] Tested locally
 - [x] Provisioned Linux server
 - [x] Connected using SSH
+- [x] Installed basic server tools
 - [x] Installed Node.js on server
-- [ ] Deployed API to server
-- [ ] Managed API with pm2 or systemd
-- [ ] Configured firewall
-- [ ] Checked logs
-- [ ] Documented errors and fixes
+- [x] Installed PM2 on server
+- [x] Cloned repository to server
+- [x] Installed API dependencies on server
+- [x] Deployed API to server
+- [x] Managed API with pm2 or systemd
+- [x] Configured firewall
+- [x] Checked logs
+- [x] Documented errors and fixes
 
 ## EC2 Instance Summary
 
@@ -129,7 +135,28 @@ It allows the API to keep running after the SSH terminal closes.
 
 It also provides commands for checking process status, viewing logs, restarting the app, and stopping the app.
 
-## Next Step
 
-The next step is to deploy the API to the server and manage it with PM2 or systemd.
+## Stage 1 Summary
 
+In this stage, I deployed a TypeScript/Node.js API to an Ubuntu EC2 server and managed it as a long-running process using PM2.
+
+I learned how to:
+
+- Launch an EC2 Linux server
+- Connect from my Mac using SSH
+- Protect and use a `.pem` private key
+- Install server packages
+- Install Node.js and PM2
+- Clone a GitHub repository onto EC2
+- Run and test an API on the server
+- Configure an EC2 security group
+- Expose an application port safely to my IP
+- Debug why an app works on EC2 but not from my Mac
+- Manage a Node.js process with PM2
+- Check logs and restart the service
+
+## Final Working Endpoint
+
+```bash
+curl http://3.11.8.243:3000/health
+```
