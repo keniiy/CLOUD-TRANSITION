@@ -81,7 +81,7 @@ Instance details:
 
 ### Step 3: Connect to the server using SSH
 
-Status: Not started
+Status: Not started -> Done
 
 The next step is to connect from my Mac to the EC2 instance using SSH.
 
@@ -97,7 +97,7 @@ The username is `ubuntu` because the EC2 instance is running Ubuntu.
 
 ### Step 4: Prepare the server
 
-Status: Not started
+Status: Not started -> Done
 
 After connecting to the server, I will update the package list and install basic tools.
 
@@ -117,7 +117,7 @@ Why these tools are needed:
 
 ### Step 5: Install Node.js on the server
 
-Status: Not started
+Status: Not started -> Done 
 
 The server needs Node.js to run the TypeScript/Node.js API.
 
@@ -132,7 +132,7 @@ npm -v
 
 ### Step 6: Clone the CLOUD TRANSITION repository
 
-Status: Not started
+Status: Not started -> Done
 
 After Node.js is installed, I will clone the project from GitHub onto the server.
 
@@ -144,7 +144,7 @@ Expected location:
 
 ### Step 7: Install project dependencies
 
-Status: Not started
+Status: Not started -> Done
 
 Inside the Node API service folder:
 
@@ -155,7 +155,7 @@ npm install
 
 ### Step 8: Run the API on the server
 
-Status: Not started
+Status: Not started -> Done
 
 First, I will run the API manually to confirm it works.
 
@@ -218,10 +218,10 @@ sudo journalctl -u cloud-transition-node-api -f
 - [x] SSH connection completed
 - [x] Server packages updated
 - [x] Basic tools installed
-- [ ] Node.js installed
-- [ ] Repository cloned to server
-- [ ] API dependencies installed
-- [ ] API running manually on server
+- [x] Node.js installed
+- [x] Repository cloned to server
+- [x] API dependencies installed
+- [x] API running manually on server
 - [ ] API accessible through public IP and port 3000
 - [ ] API managed by pm2 or systemd
 - [ ] Logs checked
