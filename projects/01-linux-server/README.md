@@ -31,8 +31,8 @@ Before moving into Docker, CI/CD, Terraform, ECS, Kubernetes, and platform engin
 - [x] Created local TypeScript/Node.js API
 - [x] Tested locally
 - [x] Provisioned Linux server
-- [ ] Connected using SSH
-- [ ] Installed Node.js on server
+- [x] Connected using SSH
+- [x] Installed Node.js on server
 - [ ] Deployed API to server
 - [ ] Managed API with pm2 or systemd
 - [ ] Configured firewall
@@ -114,8 +114,22 @@ For this stage, I do not need them.
 
 The default 8 GiB root EBS volume is enough for running the Linux server and Node.js API.
 
+
+### Node.js Runtime
+
+The EC2 server needs Node.js because the API is built with TypeScript/Node.js.
+
+I installed Node.js LTS on the server so the API can be built and executed in the Linux environment.
+
+### PM2
+
+PM2 is a Node.js process manager.
+
+It allows the API to keep running after the SSH terminal closes.
+
+It also provides commands for checking process status, viewing logs, restarting the app, and stopping the app.
+
 ## Next Step
 
-Connect to the EC2 instance from my Mac using SSH.
+The next step is to deploy the API to the server and manage it with PM2 or systemd.
 
-After connecting, I will install the required server tools, install Node.js, clone the project from GitHub, and run the API on the server.
