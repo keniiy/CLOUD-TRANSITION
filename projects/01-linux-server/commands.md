@@ -24,6 +24,7 @@ touch .env.example
 ```
 
 ## 2. Mac SSH Setup
+
 Run from the local machine:
 
 ```bash
@@ -33,24 +34,28 @@ mv ~/Downloads/cloud-transition-key.pem ~/.ssh/cloud-transition/ # Move the down
 chmod 400 ~/.ssh/cloud-transition/cloud-transition-key.pem # Set correct permissions for the key
 ```
 
+## 3. SSH into the EC2 Linux server
 
-# 3. SSH into the EC2 Linux server
 Run from the local machine:
 
 ```bash
 ssh -i ~/.ssh/cloud-transition/cloud-transition-key.pem ubuntu@<EC2_INSTANCE_PUBLIC_IP>
 ```
 
-# 4. Prepare the server
+## 4. Prepare the server
+
 Run from the EC2 server terminal:
+
 ```bash
 sudo apt update # Update the package list
 sudo apt upgrade -y # Upgrade installed packages
 sudo apt install -y curl git build-essential # Install curl, git, and build tools
 ```
 
-# 5. Server info Checks Commands (Optional but useful for learning)
+## 5. Server info Checks Commands (Optional but useful for learning)
+
 Run from the EC2 server terminal:
+
 ```bash
 whoami # Check current user
 pwd # Check current directory

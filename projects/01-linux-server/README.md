@@ -27,7 +27,6 @@ Before moving into Docker, CI/CD, Terraform, ECS, Kubernetes, and platform engin
 - `GET /info`
 
 
-
 ## Current Status
 
 - [x] Created local TypeScript/Node.js API
@@ -120,7 +119,6 @@ For this stage, I do not need them.
 
 The default 8 GiB root EBS volume is enough for running the Linux server and Node.js API.
 
-
 ### Node.js Runtime
 
 The EC2 server needs Node.js because the API is built with TypeScript/Node.js.
@@ -134,7 +132,6 @@ PM2 is a Node.js process manager.
 It allows the API to keep running after the SSH terminal closes.
 
 It also provides commands for checking process status, viewing logs, restarting the app, and stopping the app.
-
 
 ## Stage 1 Summary
 

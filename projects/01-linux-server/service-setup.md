@@ -1,5 +1,3 @@
-
-
 # Service Setup Notes
 
 ## Current Stage
@@ -117,7 +115,7 @@ Why these tools are needed:
 
 ### Step 5: Install Node.js on the server
 
-Status: Not started -> Done 
+Status: Not started -> Done
 
 The server needs Node.js to run the TypeScript/Node.js API.
 
@@ -187,7 +185,6 @@ Running the app manually is not enough because it stops when the terminal closes
 I will use either `pm2` or `systemd` to keep it running as a long-running process.
 
 For this stage, the first option will likely be `pm2` because it is simpler for learning process management.
-
 
 ## 10. PM2 Process Management
 
