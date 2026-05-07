@@ -46,3 +46,30 @@ To fix this, I added a new inbound rule to the security group to allow TCP traff
 - Source: My IP
 6. Save the rules and test the API again using the public IP and port 3000.
 
+## Issues: Public IP changes and security group access
+
+### Problem
+
+My EC2 security group allows SSH and port 3000 only from my public IP.
+
+When my public IP changes, SSH and API access time out.
+
+### Cause
+
+My internet provider may assign a dynamic public IP.
+
+AWS security group rules using `My IP` are strict and only allow the exact IP address with `/32`.
+
+### Why this is still safer
+
+Restricting SSH to my IP is safer than opening SSH to `0.0.0.0/0`.
+
+Opening SSH to the whole internet would allow anyone to attempt connections to the server.
+
+### Current approach
+
+For this learning stage, I will update the security group when my IP changes.
+
+### Future improvement
+
+Later, I will learn AWS Systems Manager Session Manager so I can connect to EC2 without exposing SSH publicly.
