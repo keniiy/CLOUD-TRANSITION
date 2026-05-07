@@ -31,8 +31,8 @@ Mini Stage : IAM Safety Basics
 - [x] I understand MFA
 - [x] I understand security group
 - [x] I understand EC2 key pair
-- [ ] Root MFA checked
-- [ ] Budget alert checked
+- [x] Root MFA checked
+- [x] Budget alert checked
 
 ## Current Blockers
 
