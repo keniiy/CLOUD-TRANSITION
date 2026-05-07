@@ -1,5 +1,63 @@
 # Request Flow
 
+## Project Goal
+
+Move request entry from direct app access on port `3000` to Nginx on port `80`.
+
+## Why This Matters
+
+Direct app access is fine for initial testing, but production-style traffic usually enters through a web server or reverse proxy.
+
+Nginx becomes the public entry point, and the Node.js API stays internal.
+
+## Previous Request Flow
+
+```text
+Mac / Browser
+  ↓
+http://3.11.8.243:3000
+  ↓
+Node.js API
+```
+
+## Current Request Flow
+
+```text
+Mac / Browser
+  ↓
+http://3.11.8.243
+  ↓
+Nginx on port 80
+  ↓
+Node.js API on localhost:3000
+```
+
+## Future Request Flow With HTTPS
+
+```text
+Browser
+  ↓
+https://domain.com
+  ↓
+Nginx on port 443 with SSL/TLS
+  ↓
+Node.js API on localhost:3000
+```
+
+## What Changes In Practice
+
+- Clients stop calling `:3000` directly
+- Nginx receives public HTTP requests
+- Nginx forwards requests to `127.0.0.1:3000`
+- App port stays private while web port is public
+
+## Final Working URL
+
+```bash
+curl http://3.11.8.243/health
+```
+# Request Flow
+
 ## Previous Flow
 Before Nginx, the request flow was:
 
@@ -95,16 +153,4 @@ Example:
 Or with domains:
 
 ```text
-api.example.com      -> Node.js service
-worker.example.com   -> Python service
-admin.example.com    -> Admin service
-```
-
-This is closer to platform engineering because the public entry point is separated from internal service ports.
-
-## Key Lesson
-Running an app is not the same as exposing it properly.
-
-Stage 1 proved the app could run on a cloud server.
-
-Stage 2 improves how traffic reaches that app.
+http://3.11.8.243:3000/health
