@@ -26,7 +26,6 @@ Before moving into Docker, CI/CD, Terraform, ECS, Kubernetes, and platform engin
 - `GET /health`
 - `GET /info`
 
-
 ## Current Status
 
 - [x] Created local TypeScript/Node.js API
