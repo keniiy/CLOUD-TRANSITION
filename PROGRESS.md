@@ -61,12 +61,12 @@
 - [x] Added Stage 2 nginx-config.md
 - [x] Added Stage 2 errors-and-fixes.md
 - [x] Added Stage 2 interview-explanation.md
-- [ ] Confirm Node API is still running with PM2
-- [ ] Install Nginx on EC2
-- [ ] Confirm Nginx is active/running
-- [ ] Confirm Nginx default page works locally on EC2
-- [ ] Allow HTTP port 80 in AWS security group
-- [ ] Confirm Nginx default page works from Mac/browser
+- [x] Confirm Node API is still running with PM2
+- [x] Install Nginx on EC2
+- [x] Confirm Nginx is active/running
+- [x] Confirm Nginx default page works locally on EC2
+- [x] Allow HTTP port 80 in AWS security group
+- [x] Confirm Nginx default page works from Mac/browser
 - [ ] Create Nginx reverse proxy config
 - [ ] Enable Nginx reverse proxy config
 - [ ] Remove default Nginx site if needed
