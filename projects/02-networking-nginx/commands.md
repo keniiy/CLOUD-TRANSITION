@@ -247,3 +247,94 @@ Expected result: The Nginx error logs.
 2026/05/08 12:00:00 [error] 12345#12345: *1 connect() to 127.0.0.1:3000 failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: 3.11.8.243, request: "GET /health HTTP/1.1", upstream: "http://127.0.0.1:3000/health", host: "3.11.8.243"
 and so on...
 ```
+
+## 14. Get a Domain Name
+
+From FreeDNS.org, get a domain name.
+i use DuckDNS.org for this project.
+
+after creating the domain, i need to add the DNS records to the domain.
+
+```text
+Type: A
+Name: @
+Value: 3.11.8.243
+```
+
+```text
+Type: A
+Name: www
+Value: 3.11.8.243
+```
+
+Then test the domain by running the following command from the local machine:
+
+```bash
+curl http://cloudtransition.duckdns.org/health
+```
+
+Expected result: The Node.js API health check response.
+
+```json
+{
+    "status": "ok",
+    "message": "API is running"
+}
+```
+
+## 15. Update Nginx reverse proxy config to use the domain name
+
+SSH into the EC2 server:
+
+```bash
+sudo nano /etc/nginx/sites-available/cloud-transition-node-api
+```
+
+Paste in the following config:
+
+```nginx
+#change the server_name to the domain name
+server {
+    listen 80;
+    server_name cloudtransition.duckdns.org;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+command to save and exit:
+
+```bash
+CTRL + O
+Enter
+CTRL + X
+```
+
+Then run:
+
+```bash
+sudo nginx -t #test the config
+sudo systemctl reload nginx #reload Nginx to apply the changes
+```
+
+Then test the domain by running the following command from the local machine:
+
+```bash
+curl http://cloudtransition.duckdns.org/health
+```
+
+Expected result: The Node.js API health check response.
+
+```json
+{
+    "status": "ok",
+    "message": "API is running"
+}
+```

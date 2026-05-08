@@ -78,7 +78,7 @@ Nginx sits in front of the app and forwards traffic to it.
 - [x] Checked Nginx error logs
 - [x] Documented Stage 2 errors and fixes
 - [x] Updated Stage 2 interview explanation
-- [ ] Prepared for DNS/domain setup
+- [x] Prepared for DNS/domain setup
 - [ ] Prepared for HTTPS setup
 
 ## EC2 Instance Summary
@@ -120,3 +120,9 @@ The Node.js API can keep running on `localhost:3000` while Nginx handles externa
 AWS security groups control which ports are reachable from outside the EC2 instance.
 
 For this stage, HTTP port `80` should be allowed, and public access to port `3000` should be removed after Nginx is working.
+
+### Final Working Endpoint
+
+```bash
+curl http://cloudtransition.duckdns.org/health
+```

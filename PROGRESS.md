@@ -80,7 +80,7 @@
 - [x] Check Nginx error logs
 - [x] Document Stage 2 errors and fixes
 - [x] Update Stage 2 interview explanation
-- [ ] Prepare for DNS/domain setup
+- [x] Prepare for DNS/domain setup
 - [ ] Prepare for HTTPS setup
 
 ## Stage 3: AWS Foundation
