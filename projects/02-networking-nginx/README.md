@@ -58,19 +58,20 @@ Nginx sits in front of the app and forwards traffic to it.
 - [x] Added Stage 2 nginx-config.md
 - [x] Added Stage 2 errors-and-fixes.md
 - [x] Added Stage 2 interview-explanation.md
-- [ ] Confirmed Node API is still running with PM2
-- [ ] Installed Nginx on EC2
-- [ ] Confirmed Nginx is active/running
-- [ ] Confirmed Nginx default page works locally on EC2
-- [ ] Allowed HTTP port 80 in AWS security group
-- [ ] Confirmed Nginx default page works from Mac/browser
-- [ ] Created Nginx reverse proxy config
-- [ ] Enabled Nginx reverse proxy config
-- [ ] Removed default Nginx site if needed
-- [ ] Tested Nginx config with `sudo nginx -t`
-- [ ] Reloaded Nginx
-- [ ] Tested API through Nginx from EC2
-- [ ] Tested API through Nginx from Mac
+- [x] Confirmed Node API is still running with PM2
+- [x] Installed Nginx on EC2
+- [x] Confirmed Nginx is active/running
+- [x] Confirmed Nginx default page works locally on EC2
+- [x] Allowed HTTP port 80 in AWS security group
+- [x] Confirmed Nginx default page works from Mac/browser
+- [x] Created Nginx reverse proxy config
+- [x] Enabled Nginx reverse proxy config
+- [x] Tested Nginx reverse proxy config
+- [x] Removed default Nginx site if needed
+- [x] Tested Nginx config with `sudo nginx -t`
+- [x] Reloaded Nginx
+- [x] Tested API through Nginx from EC2
+- [x] Tested API through Nginx from Mac
 - [ ] Removed public access to port 3000
 - [ ] Confirmed API still works through Nginx after port 3000 is blocked publicly
 - [ ] Checked Nginx access logs

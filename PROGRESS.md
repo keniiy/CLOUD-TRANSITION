@@ -67,13 +67,13 @@
 - [x] Confirm Nginx default page works locally on EC2
 - [x] Allow HTTP port 80 in AWS security group
 - [x] Confirm Nginx default page works from Mac/browser
-- [ ] Create Nginx reverse proxy config
-- [ ] Enable Nginx reverse proxy config
-- [ ] Remove default Nginx site if needed
-- [ ] Test Nginx config with `sudo nginx -t`
-- [ ] Reload Nginx
-- [ ] Test API through Nginx from EC2
-- [ ] Test API through Nginx from Mac
+- [x] Create Nginx reverse proxy config
+- [x] Enable Nginx reverse proxy config
+- [x] Remove default Nginx site if needed
+- [x] Test Nginx config with `sudo nginx -t`
+- [x] Reload Nginx
+- [x] Test API through Nginx from EC2
+- [x] Test API through Nginx from Mac
 - [ ] Remove public access to port 3000
 - [ ] Confirm API still works through Nginx after port 3000 is blocked publicly
 - [ ] Check Nginx access logs
