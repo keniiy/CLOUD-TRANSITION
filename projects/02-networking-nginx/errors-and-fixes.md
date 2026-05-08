@@ -40,3 +40,30 @@ Nginx stores available configs in /etc/nginx/sites-available/.
 A config becomes active when it is linked into /etc/nginx/sites-enabled/.
 
 If the symlink already exists, the config is already enabled.
+
+## Issue 2: Issue:  Nginx inherited sockets notice
+
+### Problem 2
+
+When looking through the Nginx error logs, I got the following warning:
+
+```bash
+sudo tail -n 20 /var/log/nginx/error.log | grep "inherited sockets"
+```
+
+Expected result: The Nginx error logs.
+
+### Error 2
+
+```bash
+2026/05/07 17:35:33 [notice] 55280#55280: using inherited sockets from "5;6;"
+and so on...
+```
+
+### Cause 2
+
+This is a normal Nginx notice after reload/restart behavior.
+
+### Lesson 2
+
+Not every entry in error.log is a failure. Some entries are informational notices.

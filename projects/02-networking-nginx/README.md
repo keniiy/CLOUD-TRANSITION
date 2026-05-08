@@ -72,12 +72,12 @@ Nginx sits in front of the app and forwards traffic to it.
 - [x] Reloaded Nginx
 - [x] Tested API through Nginx from EC2
 - [x] Tested API through Nginx from Mac
-- [ ] Removed public access to port 3000
-- [ ] Confirmed API still works through Nginx after port 3000 is blocked publicly
-- [ ] Checked Nginx access logs
-- [ ] Checked Nginx error logs
-- [ ] Documented Stage 2 errors and fixes
-- [ ] Updated Stage 2 interview explanation
+- [x] Removed public access to port 3000
+- [x] Confirmed API still works through Nginx after port 3000 is blocked publicly
+- [x] Checked Nginx access logs
+- [x] Checked Nginx error logs
+- [x] Documented Stage 2 errors and fixes
+- [x] Updated Stage 2 interview explanation
 - [ ] Prepared for DNS/domain setup
 - [ ] Prepared for HTTPS setup
 

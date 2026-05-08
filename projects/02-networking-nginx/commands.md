@@ -167,3 +167,83 @@ Expected result: The Node.js API health check response.
     "message": "API is running"
 }
 ```
+
+## 10. Remove public access to port 3000
+
+Run from the EC2 server:
+
+```bash
+sudo ufw delete allow 3000/tcp
+```
+
+or go to the AWS console and remove the inbound rule for port 3000.
+
+EC2 Instance -> Security Group -> Inbound rules -> Edit inbound rules -> Remove rule -> Custom TCP -> Port range: 3000 -> Source: 0.0.0.0/0 -> Save
+
+and try to access the API through the public IP and port 3000.
+
+Expected result: The API is not accessible.
+
+```bash
+curl http://3.11.8.243:3000/health
+```
+
+Expected result: The API is not accessible.
+
+```text
+curl: (7) Failed to connect to 3.11.8.243 port 3000: Connection refused
+```
+
+## 11. Test API through Nginx from EC2
+
+Run from the EC2 server:
+
+```bash
+curl http://localhost:3000/health
+curl http://localhost/health
+```
+
+Expected result: The Node.js API health check response.
+
+```json
+{
+    "status": "ok",
+    "message": "API is running"
+}
+```
+
+## 12. Examine Nginx access logs
+
+Run from the EC2 server:
+
+```bash
+sudo tail -n 20 /var/log/nginx/access.log #tail is used to show the last 20 lines of the file
+sudo tail -f /var/log/nginx/access.log #tail -f is used to show the file in real time
+sudo less /var/log/nginx/access.log #less is used to show the file in a pager
+```
+
+Expected result: The Nginx access logs.
+
+```text
+GET /health HTTP/1.1
+GET /info HTTP/1.1
+127.0.0.1 - - [08/May/2026:12:00:00 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/8.0.1"
+and so on...
+```
+
+## 13. Examine Nginx error logs
+
+Run from the EC2 server:
+
+```bash
+sudo tail -n 20 /var/log/nginx/error.log #tail is used to show the last 20 lines of the file
+sudo tail -f /var/log/nginx/error.log #tail -f is used to show the file in real time
+sudo less /var/log/nginx/error.log #less is used to show the file in a pager
+```
+
+Expected result: The Nginx error logs.
+
+```text
+2026/05/08 12:00:00 [error] 12345#12345: *1 connect() to 127.0.0.1:3000 failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: 3.11.8.243, request: "GET /health HTTP/1.1", upstream: "http://127.0.0.1:3000/health", host: "3.11.8.243"
+and so on...
+```

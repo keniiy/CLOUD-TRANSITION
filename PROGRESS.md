@@ -74,12 +74,12 @@
 - [x] Reload Nginx
 - [x] Test API through Nginx from EC2
 - [x] Test API through Nginx from Mac
-- [ ] Remove public access to port 3000
-- [ ] Confirm API still works through Nginx after port 3000 is blocked publicly
-- [ ] Check Nginx access logs
-- [ ] Check Nginx error logs
-- [ ] Document Stage 2 errors and fixes
-- [ ] Update Stage 2 interview explanation
+- [x] Remove public access to port 3000
+- [x] Confirm API still works through Nginx after port 3000 is blocked publicly
+- [x] Check Nginx access logs
+- [x] Check Nginx error logs
+- [x] Document Stage 2 errors and fixes
+- [x] Update Stage 2 interview explanation
 - [ ] Prepare for DNS/domain setup
 - [ ] Prepare for HTTPS setup
 
