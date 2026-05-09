@@ -79,7 +79,7 @@ Nginx sits in front of the app and forwards traffic to it.
 - [x] Documented Stage 2 errors and fixes
 - [x] Updated Stage 2 interview explanation
 - [x] Prepared for DNS/domain setup
-- [ ] Prepared for HTTPS setup
+- [x] Prepared for HTTPS setup
 
 ## EC2 Instance Summary
 

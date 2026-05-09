@@ -338,3 +338,31 @@ Expected result: The Node.js API health check response.
     "message": "API is running"
 }
 ```
+
+## 16. Prepare for HTTPS setup
+
+Run from the EC2 server:
+
+```text
+EC2 Instance -> Security Group -> Inbound rules -> Edit inbound rules -> Add rule -> Custom TCP -> Port range: 443 -> Source: 0.0.0.0/0 -> Save
+```
+
+## 17. Install Certbot
+
+Run from the EC2 server:
+
+```bash
+sudo apt update
+
+sudo apt install -y certbot python3-certbot-nginx
+```
+
+Then Request the SSL certificate:
+
+```bash
+sudo certbot --nginx -d ${domain_name}
+#example
+sudo certbot --nginx -d cloudtransition.duckdns.org
+```
+
+THEN FINISH THE SSL CERTIFICATE REQUEST BY FOLLOWING THE PROMPTS. :)
