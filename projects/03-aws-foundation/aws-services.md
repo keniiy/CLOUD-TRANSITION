@@ -18,137 +18,46 @@ What risks or costs do they introduce?
 `eu-west-2` (London)
 
 Reason: this region is close to the UK and matches my current location.
+NOTE: ideally, as a Cloud Engineer, you would choose the region closest to your users.
+For example, if your users are in the US, you would choose the US region.
+If your users are in Europe, you would choose the Europe region.
+If your users are in Asia, you would choose the Asia region.
 
-## AWS Resources Currently Used
+Task is to document the following AWS services and look through AWS Console for their values.
 
-### EC2
+Focus on these sections:
 
-Resource: `cloud-transition-linux-server`
+EC2
 
-Purpose: runs the Ubuntu Linux server hosting:
+- Security Group
+- Key Pair
+- Public IPv4
+- IAM role
+- Region
+- DuckDNS
+- Certbot / HTTPS
 
-- Node.js API
-- PM2
-- Nginx
-- Certbot
-- project repository
+### Collect current AWS values
 
-Known details:
-
-- Instance ID: `i-0ecce121dda99ea81`
-- Instance type: `t3.micro`
-- AMI: Ubuntu Server 24.04 LTS
-- Public IP: `3.11.8.243`
-- Private IP: `172.31.10.135`
-- Region: `eu-west-2`
-
-Why it matters: EC2 is the compute layer for the current deployment.
-
-### Security Group
-
-Resource: `launch-wizard-1`
-
-Purpose: controls inbound and outbound network traffic to the EC2 instance.
-
-Current intended inbound rules:
-
-- SSH — TCP `22` — My IP
-- HTTP — TCP `80` — `0.0.0.0/0`
-- HTTPS — TCP `443` — `0.0.0.0/0`
-
-Important note: port `3000` should not be publicly exposed. The Node.js app runs internally on `localhost:3000`, and Nginx forwards public traffic to it.
-
-Why it matters: security groups are the AWS firewall around the EC2 instance.
-
-### Key Pair
-
-Resource: `cloud-transition-key`
-
-Purpose: allows SSH access from my Mac to the EC2 Ubuntu server.
-
-Private key location on Mac:
+In AWS Console, go to:
 
 ```text
-~/.ssh/cloud-transition/cloud-transition-key.pem
+EC2 → Instances → cloud-transition-linux-server
 ```
 
-Why it matters: without the private key, I cannot SSH into the server.
+Values to document:
 
-Security note: the `.pem` file must not be committed to GitHub or shared.
-
-### Public IPv4 Address
-
-Current value: `3.11.8.243`
-
-Purpose: allows public internet access to the EC2 instance.
-
-Risk: the current public IP is auto-assigned and may change if the instance is stopped and started.
-
-Next improvement: attach an Elastic IP.
-
-### IAM
-
-Current use: IAM is used for AWS account access and permissions.
-
-Current EC2 IAM role: none attached.
-
-Why it matters: the EC2 instance currently does not need to call AWS APIs directly. Later, if EC2 needs to access S3, CloudWatch logs, or other AWS services securely, it should use an IAM role instead of hardcoded credentials.
-
-### Billing / Budgets
-
-Purpose: protects against unexpected AWS cost.
-
-Current checkpoint: root MFA checked; budget alert checked.
-
-Why it matters: even small cloud projects can cost money if resources are left running or configured incorrectly.
-
-## Non-AWS Services Used With AWS
-
-### DuckDNS
-
-Domain: `cloudtransition.duckdns.org`
-
-Purpose: maps a domain name to the EC2 public IP.
-
-Current endpoint:
-
-```text
-https://cloudtransition.duckdns.org/health
-```
-
-### Let’s Encrypt / Certbot
-
-Purpose: provides free SSL/TLS certificate for HTTPS.
-
-Certificate domain: `cloudtransition.duckdns.org`
-
-### GitHub
-
-Purpose: stores project code and documentation.
-
-Repository: `CLOUD-TRANSITION`
-
-## Current Architecture Summary
-
-```text
-User
-  ↓
-cloudtransition.duckdns.org
-  ↓
-EC2 public IP
-  ↓
-Security Group
-  ↓
-Nginx on 80/443
-  ↓
-Node.js API on localhost:3000
-```
-
-## Questions To Answer During This Stage
-
-- What happens if the EC2 instance stops?
-- What happens if the public IP changes?
-- What is the cost of the current setup?
-- Should the instance have an IAM role?
-- What metrics does CloudWatch show by default?
-- What should be tagged for cleanup?
+- Instance ID: i-0ecce121dda99ea81
+- Instance type: t3.micro
+- Region: eu-west-2
+- AMI name: ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20260313
+- AMI ID: ami-09dbc7ce74870d573
+- Public IPv4: 3.11.8.243
+- Private IPv4: 172.31.10.135
+- Availability Zone: eu-west-2b
+- VPC ID: vpc-03c8ed0abc982f3f8
+- Subnet ID: subnet-09e3ead6aaaa59786
+- Security group name: launch-wizard-1
+- Security group ID: sg-0b4aefd0d7a76fdc4
+- Key pair name: cloud-transition-key
+- IAM role: None currently attached
