@@ -2,7 +2,7 @@
 
 ## Current Stage
 
-- Stage 2: Networking, Nginx, DNS, and HTTPS
+- Stage 3: AWS Foundation - IN PROGRESS
 
 ## Stage 0: Project Setup
 
@@ -83,9 +83,128 @@
 - [x] Prepare for DNS/domain setup
 - [x] Prepare for HTTPS setup
 
-## Stage 3: AWS Foundation
+## Stage 3: AWS Foundation - IN PROGRESS
 
-- [ ] Start Stage 3
+- [x] Start Stage 3
+- [x] Created Stage 3 project folder
+- [x] Added Stage 3 README.md
+
+### AWS Account And Region
+
+- [ ] Review AWS account structure
+- [ ] Confirm active AWS region
+- [ ] Document why `eu-west-2` is used
+- [ ] Review availability zones
+- [ ] Document current EC2 availability zone
+
+### AWS Resource Inventory
+
+- [ ] Add AWS services inventory
+- [ ] Review current AWS resources
+- [ ] Document EC2 instance details
+- [ ] Document AMI details
+- [ ] Document instance type
+- [ ] Document key pair
+- [ ] Document security group
+- [ ] Document public IP
+- [ ] Document DuckDNS domain
+- [ ] Document Nginx and HTTPS relationship
+
+### Elastic IP
+
+- [ ] Learn what Elastic IP is
+- [ ] Attach Elastic IP to EC2
+- [ ] Update DuckDNS to point to Elastic IP
+- [ ] Confirm HTTPS still works after Elastic IP
+- [ ] Document Elastic IP
+- [ ] Understand Elastic IP cost warning
+
+### Security Groups
+
+- [ ] Review current security group rules
+- [ ] Confirm SSH is restricted to My IP
+- [ ] Confirm HTTP port 80 is public
+- [ ] Confirm HTTPS port 443 is public
+- [ ] Confirm port 3000 is not publicly exposed
+- [ ] Document why port 3000 should stay private
+- [ ] Document dynamic IP issue for SSH access
+
+### IAM Foundation
+
+- [ ] Review root user usage
+- [ ] Review IAM user usage
+- [ ] Review current IAM permissions
+- [ ] Document IAM policy basics
+- [ ] Document IAM role basics
+- [ ] Understand why EC2 currently has no IAM role
+- [ ] Learn when EC2 needs an IAM role
+
+### Billing And Cost Control
+
+- [ ] Review AWS billing dashboard
+- [ ] Review monthly budget alert
+- [ ] Check current EC2 running cost
+- [ ] Understand public IPv4 cost risk
+- [ ] Understand Elastic IP cost rules
+- [ ] Document cleanup plan
+- [ ] Add cost-control notes
+
+### Tags And Resource Organization
+
+- [ ] Review current EC2 tags
+- [ ] Add/confirm `Project=CLOUD_TRANSITION` tag
+- [ ] Add/confirm `Stage=AWS_Foundation` tag where useful
+- [ ] Document why tags matter
+
+### CloudWatch Basics
+
+- [ ] Learn what CloudWatch is
+- [ ] Check EC2 basic monitoring
+- [ ] Review EC2 CPU metrics
+- [ ] Review network metrics
+- [ ] Review status checks
+- [ ] Add CloudWatch basics notes
+- [ ] Understand difference between Nginx logs and CloudWatch metrics
+
+### S3 Basics
+
+- [ ] Learn what S3 is
+- [ ] Create a simple private S3 bucket
+- [ ] Upload a test object
+- [ ] Review bucket permissions
+- [ ] Keep bucket private
+- [ ] Delete test object if not needed
+- [ ] Add S3 basics notes
+
+### Shared Responsibility Model
+
+- [ ] Learn AWS shared responsibility model
+- [ ] Document what AWS manages
+- [ ] Document what I manage
+- [ ] Connect shared responsibility to EC2, security groups, patches, and app security
+
+### Stage 3 Documentation
+
+- [ ] Update `aws-services.md`
+- [ ] Update `elastic-ip.md`
+- [ ] Update `cloudwatch-basics.md`
+- [ ] Update `s3-basics.md`
+- [ ] Update `cost-control.md`
+- [ ] Update `commands.md`
+- [ ] Update `errors-and-fixes.md`
+- [ ] Add Stage 3 interview explanation
+
+### Stage 3 Completion
+
+- [ ] Explain all AWS resources currently used
+- [ ] Explain region and availability zone
+- [ ] Explain EC2, AMI, instance type, and key pair
+- [ ] Explain security group rules
+- [ ] Explain Elastic IP
+- [ ] Explain CloudWatch basics
+- [ ] Explain S3 basics
+- [ ] Explain billing risks and cleanup
+- [ ] Complete Stage 3
 
 ## Stage 4: RDS and S3 Integration
 
@@ -149,4 +268,4 @@
 
 ## Next Step
 
-- Install Nginx on EC2
+- Review AWS account structure
